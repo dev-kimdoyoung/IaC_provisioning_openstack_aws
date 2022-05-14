@@ -3,9 +3,15 @@ variable "profile" {
 	type		= string
 }
 
+variable "os_image" {
+	description = "set OS Image Type and Version"
+	type 		= string
+}
+
 variable "controller_ssh_password" {
 	description	= "set account password to connect ssh to controller node"
   	type 		= string
+	default 	= "admin"
 }
 
 variable "avail_zones" {
@@ -43,15 +49,15 @@ variable "controller_node_ip" {
 	type		= list
 }
 
-variable "compute_node_count" {
-        description     = "k8s worker node count"
-        type            = number
-}
+# variable "compute_node_count" {
+#         description     = "k8s worker node count"
+#         type            = number
+# }
 
-variable "compute_node_ip" {
-        description     = "k8s worker node' ec2 private ip list"
-        type            = list
-}
+# variable "compute_node_ip" {
+#         description     = "k8s worker node' ec2 private ip list"
+#         type            = list
+# }
 
 # variable "bastion_node_count" {
 # 	description	= "bastion node count"
