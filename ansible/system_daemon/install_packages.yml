@@ -1,0 +1,5 @@
+- name: "Configure specific packages"
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ install_service }}"

@@ -1,0 +1,28 @@
+---
+- name: "hostname configuration"
+  hostname:
+    name: "{{ my_hostname }}"
+  register: result
+
+- debug: var=result
+
+- name: "configure group purposed to view"
+  group:
+    name: "{{ infra_group_name }}"
+    state: present
+
+- name: "configure user purposed to view"
+  user:
+    name: "{{ infra_check_purposed_username }}"
+    password: 123
+    group: "{{ infra_group_name }}"
+    shell: /bin/bash
+    state: present
+
+- name: "Infrastructure management directory"
+  ansible.builtin.file:
+    path: "{{ infra_management_directory }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ infra_check_purposed_username }}"
+    group: "{{ infra_group_name }}"

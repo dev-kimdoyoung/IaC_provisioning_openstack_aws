@@ -1,0 +1,7 @@
+---
+- name: "hostname configuration"
+  hostname:
+    name: "{{ hostname }}"
+  register: result
+
+- debug: var=result

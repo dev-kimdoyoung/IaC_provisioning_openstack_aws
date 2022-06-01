@@ -1,0 +1,8 @@
+---
+- name: "Configure specific services"
+  systemd:
+    name: "{{ item.name }}"
+    state: "{{ item.service_state }}"
+    enabled: "{{ item.enabled }}"
+  loop: "{{ daemon }}"
+    

@@ -30,14 +30,14 @@ resource "aws_instance" "openstack_controller_node" {
 
     provisioner "remote-exec" {
             inline = [
-                "sudo dnf install -y ansible",
+                # install Packages (ssh, ansible, python3, pip3)
                 "sudo dnf install -y ssh",
                 "sudo useradd -s /bin/bash -m bastion",
                 "echo 'bastion:${var.controller_ssh_password}' | sudo chpasswd",
                 "sudo usermod -aG wheel bastion",
                 "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config",
-                # "sudo systemctl restart sshd",
-                # "sudo echo '%wheel ALL=(ALL)    NOPASSWD: ALL' >> /etc/sudoers"
+                "sudo systemctl restart sshd",
+                # "sudo echo '%wheel ALL=(ALL)    NOPASSWD: ALL' >> /etc/sudoers",
             ]
     }
 }

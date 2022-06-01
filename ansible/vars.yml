@@ -1,0 +1,25 @@
+---
+### account/config_user_group.yml
+infra_account: [
+  {'groupname': 'wheel', 
+  'username': 'tech',
+  'initial_user_password': 'password',
+  'hashing_algorithm': 'md5',   # md5 | sha512
+  'user_directory': '/home/tech'},
+]
+
+### network/set_hostname.yml
+hostname: "web"
+
+### system_daemon/config_system_daemon.yml
+daemon: [
+  { 'name' : 'chronyd', 'service_state': 'restarted', 'enabled': yes},
+  # { 'name' : 'firewalld', 'service_state': 'stopped', 'enabled': no},
+]
+
+### system_daemon/install_service
+install_service: [
+  'chrony',
+]
+
+### 

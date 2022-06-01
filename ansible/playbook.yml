@@ -1,0 +1,19 @@
+---
+- name: "OS Configuration"
+  hosts: web_group    # [REF] utility/inventory.INI
+  # become: true
+  become_method: su
+  become_user: bastion
+  vars_files:
+    - ./vars.yml
+  tasks:
+    - name: "Account Configuration in Redhat 7"
+      import_tasks: ./account/config_user_group.yml
+    - debug:
+        msg: "--------Complete to Account Configuration!!--------"
+
+    - name: "System Daemon in Redhat 7"
+      import_tasks: ./system_daemon/config_system_daemon.yml
+    - debug:
+        msg: "--------Complete to Daemon Configuration!!--------"
+    

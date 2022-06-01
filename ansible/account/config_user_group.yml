@@ -1,0 +1,16 @@
+---
+- name: "Linux Group Configuration"
+  group:
+    name: "{{ item.groupname }}" # required. Name of the group to manage.
+    state: present # not required. choices: absent;present. Whether the group should be present or not on the remote host.
+  loop: "{{ infra_account }}"
+
+- name: "Linux User and User's Group Configuration"
+  user:
+    name: "{{ item.username }}"
+    group: "{{ item.groupname }}"
+    shell: "/bin/bash"
+    password: "{{ item.initial_user_password }} | password_hash('{{ item.hashing_algorithm }}')"
+    state: present
+    update_password: on_create
+  loop: "{{ infra_account }}"

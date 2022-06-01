@@ -56,6 +56,18 @@ resource "aws_security_group" "openstack_security_group" {
     }
 
 # --------------------------------------------------------
+#               Inbound = allow Below Traffic (ICMP)
+#               - for All Node
+# --------------------------------------------------------
+ingress {
+        description = "SSH from VPC"
+        from_port   = 0
+        to_port     = 0
+        protocol    = "ICMP"
+        cidr_blocks = ["0.0.0.0/0"]
+}
+
+# --------------------------------------------------------
 #               Outbound = allow All traffic
 # --------------------------------------------------------
     egress {
