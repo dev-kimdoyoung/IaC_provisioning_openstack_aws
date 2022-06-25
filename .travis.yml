@@ -5,7 +5,7 @@ dist: xenial
 os: linux
 
 # Use the new container infrastructure
-sudo: false
+sudo: true
 
 branches:
   only:
@@ -20,9 +20,6 @@ addons:
     packages:
     - python-pip
 
-before_install:
-  - sudo apt-get update
-  
 install:
   # Install ansible
   - pip install ansible
