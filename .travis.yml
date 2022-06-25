@@ -7,6 +7,13 @@ os: linux
 # Use the new container infrastructure
 sudo: false
 
+branches:
+  only:
+    - master
+    - main
+    # feature 서브그룹 브랜치를 정규 표현식으로 정의 ex) feature/5, feature/1
+    # - /^(feature)\/\w*$/
+  
 # Install ansible
 addons:
   apt:
