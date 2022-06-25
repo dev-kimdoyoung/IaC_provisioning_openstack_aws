@@ -1,4 +1,6 @@
 import unittest
+
+from sklearn.feature_selection import SelectKBest
 import testinfra
    
 # def test_systemd_services(host):
@@ -17,8 +19,8 @@ import testinfra
 class Test(unittest.TestCase):
 
     def setUp(self):
-        self.host = testinfra.get_host("paramiko://bastion:admin@3.35.172.16:22")
-        # self.host = testinfra.get_host("paramiko://bas@3.35.172.16:22")
+        self.host = testinfra.get_host("paramiko://localhost")
+        # self.host = testinfra.get_host("paramiko://bastion:admin@3.35.172.16:22")
 
 
     def tearDown(self) -> None:
