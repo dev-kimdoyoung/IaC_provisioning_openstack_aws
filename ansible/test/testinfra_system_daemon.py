@@ -19,7 +19,8 @@ import testinfra
 class Test(unittest.TestCase):
 
     def setUp(self):
-        self.host = testinfra.get_host("paramiko://localhost")
+        self.host = testinfra.get_host("local://", sudo=True)
+        # self.host = testinfra.get_host("paramiko://localhost")
         # self.host = testinfra.get_host("paramiko://bastion:admin@3.35.172.16:22")
 
 
@@ -37,10 +38,10 @@ class Test(unittest.TestCase):
         self.assertTrue(bastion_user.exists)
 
 
-    def test_enable_and_running_system_daemon(self):
-        chrony = self.host.service("chronyd")
-        self.assertTrue(chrony.is_running)
-        self.assertTrue(chrony.is_enabled)
+    # def test_enable_and_running_system_daemon(self):
+    #     chrony = self.host.service("chronyd")
+    #     self.assertTrue(chrony.is_running)
+    #     self.assertTrue(chrony.is_enabled)
 
 
 if __name__ == "__main__":

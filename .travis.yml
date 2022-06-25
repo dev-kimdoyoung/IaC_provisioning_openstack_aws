@@ -31,6 +31,12 @@ script:
   # Basic role syntax check
   - ansible-playbook ansible/playbook.yml --syntax-check
 
+  # ansible configuration
+  - ansible-playbook ansible/playbook.yml
+
+  # ansible test
+  - py.test --sudo testinfra_system_daemon.py
+
 notifications:
   email:
     recipients:
