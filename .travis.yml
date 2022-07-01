@@ -23,6 +23,7 @@ addons:
 install:
   # Install ansible
   - pip install ansible
+  - pip install pytest-testinfra
 
   # Check ansible version
   - ansible --version
