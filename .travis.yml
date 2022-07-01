@@ -35,7 +35,7 @@ script:
   - ansible-playbook ansible/test/test_playbook.yml
 
   # ansible test
-  - py.test --sudo ansible/test/test_ubuntu.py
+  - py.test ansible/test/test_ubuntu.py
 
 notifications:
   email:
