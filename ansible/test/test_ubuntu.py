@@ -15,10 +15,8 @@ class Test(unittest.TestCase):
     def test_exist_account_group(self):
         bastion_user = self.host.user("bastion")
         wheel = self.host.group("wheel")
-        bastion = self.host.group("bastion")
         
         self.assertTrue(wheel.exists)
-        self.assertTrue(bastion.exists)
         self.assertTrue(bastion_user.exists)
 
 
