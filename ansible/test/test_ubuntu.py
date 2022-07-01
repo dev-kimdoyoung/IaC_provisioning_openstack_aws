@@ -13,7 +13,7 @@ class Test(unittest.TestCase):
 
 
     def test_exist_account_group(self):
-        bastion_user = self.host.user("bastion")
+        bastion_user = self.host.user("tech")
         wheel = self.host.group("wheel")
         
         self.assertTrue(wheel.exists)
