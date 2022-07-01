@@ -1,8 +1,8 @@
 ---
 - name: "OS Configuration"
-  hosts: web_group    # [REF] utility/inventory.INI
-  become_method: su
-  become_user: bastion
+  hosts: localhost
+  connection: local
+  become: true
   vars_files:
     - ./vars.yml
   tasks:

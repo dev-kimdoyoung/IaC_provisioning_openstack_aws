@@ -29,13 +29,13 @@ install:
 
 script:
   # Basic role syntax check
-  - ansible-playbook ansible/playbook.yml --syntax-check
+  - ansible-playbook ansible/test/playbook.yml --syntax-check
 
   # ansible configuration
-  - ansible-playbook ansible/playbook.yml
+  - ansible-playbook ansible/test/playbook.yml
 
   # ansible test
-  - py.test --sudo testinfra_system_daemon.py
+  - py.test --sudo ansible/test/test_ubuntu.py
 
 notifications:
   email:
